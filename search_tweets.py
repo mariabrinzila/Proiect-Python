@@ -7,10 +7,13 @@ class Tweet:
         self.location = location
 
 
-tweets_with_hashtag = []
+def generateTweetsWithHashtag(hashtag, number):
+    tweets_with_hashtag = []
+    API = tc.connectToAPI()
 
-# search the tweets with the hashtag COVID19 posted in the last 30 days
-# put all these tweets in a list
-for tweets in tc.api.search_30_day(label="Recent", query="#COVID19", maxResults=10):
-    current_tweet = Tweet(tweets.text, tweets.user.location)
-    tweets_with_hashtag.append(current_tweet)
+    # search the tweets with the hashtag COVID19 posted in the last 30 days
+    for tweets in API.search_30_day(label="Recent", query=hashtag, maxResults=number):
+        current_tweet = Tweet(tweets.text, tweets.user.location)
+        tweets_with_hashtag.append(current_tweet)
+
+    return tweets_with_hashtag
