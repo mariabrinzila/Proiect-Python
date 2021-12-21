@@ -1,12 +1,10 @@
 import search_tweets as st
 import plot_map as pm
 
-tweets = st.generateTweetsWithHashtag("#covid19", 15)
+tweets, locations = st.generateTweetsWithHashtag("#covid19", 30)
 pm.printTweets(tweets)
+print("Number of locations on the map: " + str(len(locations)))
 
-latitudes, longitudes = pm.locationsLongLat(tweets)
-latitude, longitude = pm.generateLatLongLocations(latitudes, longitudes)
-print("Number of locations on the map: " + str(len(latitudes)))
+latitude, longitude = pm.generateLatLongLocations(locations)
 print("Latitude: " + str(latitude) + " and longitude: " + str(longitude))
-
-pm.plotMap(latitudes, longitudes, latitude, longitude)
+pm.plotMap(latitude, longitude, tweets)
