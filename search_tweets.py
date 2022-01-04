@@ -4,6 +4,13 @@ from geopy.geocoders import Nominatim
 
 class Tweet:
     def __init__(self, text, location, longitude, latitude):
+        """
+        Tweet class constructor
+        :param text: a tweet's text
+        :param location: a tweet's location
+        :param longitude: a tweet's longitude
+        :param latitude: a tweet's latitude
+        """
         self.text = text
         self.location = location
         self.longitude = longitude
@@ -12,11 +19,26 @@ class Tweet:
 
 class Location:
     def __init__(self, lat, long):
+        """
+        Location class constructor
+        :param lat: a location's latitude
+        :param long: a location's longitude
+        """
         self.latitude = lat
         self.longitude = long
 
 
 def generateTweetsWithHashtag(hashtag, number):
+    """
+    Function to connect to the Twitter API, search for the most recent number tweets with the hashtag
+    hashtag, generate the coordinates of the location of each tweet (for the location that have valid
+    locations)
+    :param hashtag: hashtag that the user has inputted
+    :param number: number that the user has inputted
+    :return: tweets_with_hashtag (list of Tweet objects containing all the tweets generated) and
+    locations (list of Location objects containing the coordinates of each generated tweet's location,
+    if its location is valid)
+    """
     tweets_with_hashtag = []
     API = tc.connectToAPI()
     geo_locator = Nominatim(user_agent="Project")
