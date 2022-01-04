@@ -1,12 +1,19 @@
 import search_tweets as st
 import plot_map as pm
 from tkinter import messagebox
-import main as m
 
 
-def submittedInput():
-    hashtag = m.hashtag_variable.get()
-    number = m.number_variable.get()
+def submittedInput(hashtag_variable, number_variable):
+    """
+    Function to take the input from the user, troubleshoot for errors, process it, when there no
+    longer are any errors and call the function that generates number_variable.get() tweets with
+    the hashtag hashtag_variable.get() after processing the input
+    :param hashtag_variable: the variable that has the hashtag the user typed in
+    :param number_variable: the variable that has the number of tweets the user typed in
+    :return: void
+    """
+    hashtag = hashtag_variable.get()
+    number = number_variable.get()
     error = False
     print("The user has chosen the hashtag " + str(hashtag) +
           ". The user has chosen the hashtag " + str(number))
@@ -27,6 +34,13 @@ def submittedInput():
 
 
 def generateOutput(hashtag, number):
+    """
+    Function to search for the most recent number tweets with the hashtag given by the user and plot these
+    tweets on a map
+    :param hashtag: the hashtag inputted by the user
+    :param number: the number of tweets inputted by the user
+    :return: void
+    """
     tweets, locations = st.generateTweetsWithHashtag(hashtag, number)
     pm.printTweets(tweets)
     print("Number of locations on the map: " + str(len(locations)))
