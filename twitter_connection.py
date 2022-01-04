@@ -8,6 +8,11 @@ token_secret = '734ljvDU0Al2NW1WOwiR3NVndigHxRUuYRGcqeDbN06JF'
 
 
 def connectToAPI():
+    """
+    Function to connect to the Twitter API with the api key and secret, token key and secret generated in
+    the Twitter developer portal
+    :return: api (the connection to the API)
+    """
     # connecting to Twitter, using the Twitter tweepy API
     auth = tw.OAuthHandler(api_key, api_secret)
     auth.set_access_token(token_key, token_secret)
