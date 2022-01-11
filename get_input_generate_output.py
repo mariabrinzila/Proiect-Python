@@ -6,7 +6,7 @@ from tkinter import messagebox
 def submitted_input(hashtag_variable, number_variable):
     """
     Function to take the input from the user, troubleshoot for errors,
-    process it, when there no longer are any errors and call the function
+    process it, and when there no longer are any errors, call the function
     that generates number_variable.get() tweets with the hashtag
     hashtag_variable.get() after processing the input
     :param hashtag_variable: the variable that has the hashtag
@@ -18,14 +18,15 @@ def submitted_input(hashtag_variable, number_variable):
     hashtag = hashtag_variable.get()
     number = number_variable.get()
     error = False
-    print("The user has chosen the hashtag " + str(hashtag) +
-          ". The user has chosen the number of tweets " + str(number))
+    print("The user has chosen the hashtag " + str(hashtag)
+          + ". The user has chosen the number of tweets " + str(number))
 
     # Troubleshoot for errors (hashtag)
-    if hashtag[0] != '#':
-        messagebox.showerror("Error:", "Sorry but the hashtag needs to start "
-                                       "with the # character. Please try "
-                                       "again!")
+    if hashtag[0] != "#" or " " in hashtag:
+        messagebox.showerror("Error:", "Sorry but the hashtag needs to "
+                                       "start with the # character and it "
+                                       "must not contain spaces. "
+                                       "Please try again!")
         error = True
 
     # Troubleshoot for errors (number)
@@ -51,6 +52,10 @@ def generate_output(hashtag, number):
     pm.print_tweets(tweets)
     print("Number of locations on the map: " + str(len(locations)))
 
-    latitude, longitude = pm.generate_lat_long_locations(locations)
-    print("Latitude: " + str(latitude) + " and longitude: " + str(longitude))
-    pm.plot_map(latitude, longitude, tweets)
+    if len(locations) > 0:
+        latitude, longitude = pm.generate_lat_long_locations(locations)
+        print("Initial map coordinates are: latitude: " + str(latitude)
+              + " and longitude: " + str(longitude))
+        pm.plot_map(latitude, longitude, tweets)
+    else:
+        messagebox.showerror("Error:", "No locations to plot. Sorry bro! :(")
