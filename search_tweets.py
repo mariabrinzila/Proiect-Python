@@ -31,15 +31,15 @@ class Location:
 def generate_tweets_with_hashtag(hashtag, number):
     """
     Function to connect to the Twitter API, search for the
-    most recent number tweets with the hashtag hashtag, generate
-    the coordinates of the location of each tweet (for the location
+    most recent number tweets with the hashtag, generate
+    the coordinates of the location of each tweet (for the tweets
     that have valid locations)
     :param hashtag: hashtag that the user has inputted
-    :param number: number that the user has inputted
+    :param number: number of tweets that the user has inputted
     :return: tweets_with_hashtag (list of Tweet objects containing
-    all the tweets generated) and
-    locations (list of Location objects containing the coordinates
-    of each generated tweet's location, if its location is valid)
+    all the tweets generated) and locations (list of Location
+    objects containing the coordinates of each generated tweet's
+    location, if its location is valid)
     """
     tweets_with_hashtag = []
     api = tc.connect_to_twitter()
@@ -65,6 +65,7 @@ def generate_tweets_with_hashtag(hashtag, number):
                 current_tweet = Tweet(tweets.text, tweets.user.location, 0, 0)
         else:
             current_tweet = Tweet(tweets.text, tweets.user.location, 0, 0)
+
         tweets_with_hashtag.append(current_tweet)
 
     return tweets_with_hashtag, locations
