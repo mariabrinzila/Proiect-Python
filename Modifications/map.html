@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2ae09d5d6e524b248a8c7a5cca1c7d6d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_2ae09d5d6e524b248a8c7a5cca1c7d6d" ></div>
+        
+</body>
+<script>    
+    
+            var map_2ae09d5d6e524b248a8c7a5cca1c7d6d = L.map(
+                "map_2ae09d5d6e524b248a8c7a5cca1c7d6d",
+                {
+                    center: [28.887120266666667, 10.810432433333338],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 1,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_a19c8691d2e14d3eb42b86ef04fb589e = L.tileLayer(
+                "https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"http://cartodb.com/attributions\"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href =\"http://cartodb.com/attributions\"\u003eattributions\u003c/a\u003e", "detectRetina": false, "maxNativeZoom": 7, "maxZoom": 7, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_2ae09d5d6e524b248a8c7a5cca1c7d6d);
+        
+    
+            var marker_0ef4485050bf44e99ee042931cc73e2b = L.marker(
+                [52.1240269, -0.3898705],
+                {}
+            ).addTo(map_2ae09d5d6e524b248a8c7a5cca1c7d6d);
+        
+    
+        var popup_fc141ef530f642f28fb01b31a9e82956 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_acb1002446ce48c9845861d4debded20 = $(`<div id="html_acb1002446ce48c9845861d4debded20" style="width: 100.0%; height: 100.0%;">Hot off the press - taking names for Archery Beginners Course -March 22 #archery #Bedford #something new! Based at… https://t.co/bRLvA9Pw8Y</div>`)[0];
+            popup_fc141ef530f642f28fb01b31a9e82956.setContent(html_acb1002446ce48c9845861d4debded20);
+        
+
+        marker_0ef4485050bf44e99ee042931cc73e2b.bindPopup(popup_fc141ef530f642f28fb01b31a9e82956)
+        ;
+
+        
+    
+    
+            var marker_b050c9f4c4554fabb6427f03b00708f3 = L.marker(
+                [40.7127281, -74.0060152],
+                {}
+            ).addTo(map_2ae09d5d6e524b248a8c7a5cca1c7d6d);
+        
+    
+        var popup_306353f22ac7452dba55307d878c8ad6 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_712db42a230a400ea17ece3f979c449e = $(`<div id="html_712db42a230a400ea17ece3f979c449e" style="width: 100.0%; height: 100.0%;">#Something is #Better Than Nothing.  #GetWhatYouCanGet while you can get it  #GetWhatYouWant  #NothingIsImpossible… https://t.co/LfEXsGY4eI</div>`)[0];
+            popup_306353f22ac7452dba55307d878c8ad6.setContent(html_712db42a230a400ea17ece3f979c449e);
+        
+
+        marker_b050c9f4c4554fabb6427f03b00708f3.bindPopup(popup_306353f22ac7452dba55307d878c8ad6)
+        ;
+
+        
+    
+    
+            var marker_a36371efff42463a82a0daabc0e10691 = L.marker(
+                [-6.1753942, 106.827183],
+                {}
+            ).addTo(map_2ae09d5d6e524b248a8c7a5cca1c7d6d);
+        
+    
+        var popup_7f8dfa53ac78448da9435474d0ef3e57 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_8863dd22ce074edd860cb87d1d984d5c = $(`<div id="html_8863dd22ce074edd860cb87d1d984d5c" style="width: 100.0%; height: 100.0%;">#Hadith   #ProphetMuhammad said  If #someone is #given #something  he should give a #return for it provided he can… https://t.co/YkU5QTY0db</div>`)[0];
+            popup_7f8dfa53ac78448da9435474d0ef3e57.setContent(html_8863dd22ce074edd860cb87d1d984d5c);
+        
+
+        marker_a36371efff42463a82a0daabc0e10691.bindPopup(popup_7f8dfa53ac78448da9435474d0ef3e57)
+        ;
+
+        
+    
+</script>
