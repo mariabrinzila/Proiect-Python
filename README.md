@@ -1,21 +1,21 @@
-# Proiect Python (Twitter, tip: A, id: 2)
+# Python Project (name: Twitter, type: A, id: 2)
 By: Brinzila Maria, 3B5
 
 Table of Contents
 =================
-  * [Project Description](#1-project-description)
-  * [Twitter Communication](#2-twitter-communication)
+  * [Project description](#1-project-description)
+  * [Twitter communication](#2-twitter-communication)
   * [Tweet search](#3-tweet-search)
   * [Map plotting](#4-map-plotting)
   * [Graphic user interface](#5-graphic-user-interface)
   * [Files included](#6-files-included) 
 
-## 1. Project Description
+## 1. Project description
 The project is designed to generate x amount of tweets with a certain hashtag and plot their locations on a map (the x number of tweets and the hashtag are given by the user).
 
 ![alt text](https://github.com/mariabrinzila/Proiect-Python/blob/main/README_photos/description.png?raw=true) 
 
-## 2. Twitter Communication
+## 2. Twitter communication
 In order to get the tweets with the hashtag specified by the user, I first needed to connect to the Twitter API. Thus, I created a Twitter account, signed up for a developer account, created a development app (Python-Project2022) with the type of account I had (Essential). 
 
 ![alt text](https://github.com/mariabrinzila/Proiect-Python/blob/main/README_photos/twitter_developer_account.png?raw=true) 
