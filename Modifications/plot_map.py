@@ -3,7 +3,7 @@ import time
 from selenium import webdriver
 import folium
 from numpy import mean
-from tkinter import messagebox
+from tkinter import Text, Scrollbar
 
 
 def create_map_markers(plotted_map, tweets):
@@ -37,17 +37,19 @@ def generate_lat_long_locations(locations):
     return latitude, longitude
 
 
-def print_tweets(list_of_tweets, list_of_locations):
+def print_tweets(list_of_tweets, list_of_locations, window):
     """
     Function to print all tweets generated (their text, location and
     coordinates)
+    :param window: main window
     :param list_of_locations: list of locations' coordinates
     :param list_of_tweets: list of Tweet objects containing all the
     tweets generated
     :return: void
     """
-    nr_locations = "Number of locations on the map: " + str(len(list_of_locations))
-    lines = [nr_locations]
+    # Generate tweet information and number of locations
+    tweet_info = "Tweet info:"
+    lines = [tweet_info]
 
     for t in list_of_tweets:
         tweet_info = "Tweet text: " + str(t.text)
@@ -60,7 +62,21 @@ def print_tweets(list_of_tweets, list_of_locations):
         tweet_info = "----------------------------------------"
         lines.append(tweet_info)
 
-    messagebox.showinfo("Info", "\n".join(lines))
+    nr_locations = "Number of locations on the map: " + str(len(list_of_locations))
+    lines.append(nr_locations)
+
+    # Text widget with scrollbar to show tweet information and number of locations
+    text_widget = Text(window, width=50, height=20, wrap="none")
+    vertical_scroll = Scrollbar(window, orient='vertical', command=text_widget.yview)
+    horizontal_scroll = Scrollbar(window, orient='horizontal', command=text_widget.xview)
+    text_widget['yscrollcommand'] = vertical_scroll.set
+    text_widget['xscrollcommand'] = horizontal_scroll.set
+    text_widget.insert('end', "\n".join(lines))
+
+    # Add text widget and scrollbar in grid
+    text_widget.grid(column=0, row=4, sticky='nwes', padx=2, pady=2)
+    horizontal_scroll.grid(column=0, row=5, sticky='we')
+    vertical_scroll.grid(column=1, row=4, sticky='nws')
 
 
 def plot_map(latitude, longitude, tweets):
@@ -86,13 +102,14 @@ def plot_map(latitude, longitude, tweets):
     create_map_markers(plotted, tweets)
     path = "map.html"
 
+    # Save map as html
     delay = 5
     tmpurl = 'file://{path}/{mapfile}'.format(path=os.getcwd(), mapfile=path)
     plotted.save(path)
 
+    # Save map as png
     browser = webdriver.Chrome("F:\chromedriver.exe")
     browser.get(tmpurl)
-    # Give the map tiles some time to load
     time.sleep(delay)
     browser.save_screenshot("map.png")
     browser.quit()

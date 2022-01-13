@@ -11,7 +11,7 @@ class GraphicInterface:
         # Create window
         self.window = t.Tk()
         self.window.title("Search for tweets")
-        self.window.geometry("600x200")
+        self.window.geometry("600x500")
         self.window.configure(background="black")
 
         # Get the hashtag from user
@@ -61,7 +61,7 @@ class GraphicInterface:
         order to avoid a circular import
         :return: void
         """
-        gigo.submitted_input(self.hashtag_variable, self.number_variable)
+        gigo.submitted_input(self.hashtag_variable, self.number_variable, self.window)
 
         # Open new window and show map photo
         newWindow = t.Toplevel(self.window)

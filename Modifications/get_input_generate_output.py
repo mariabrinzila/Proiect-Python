@@ -3,7 +3,7 @@ import plot_map as pm
 from tkinter import messagebox
 
 
-def submitted_input(hashtag_variable, number_variable):
+def submitted_input(hashtag_variable, number_variable, window):
     """
     Function to take the input from the user, troubleshoot for errors,
     process it, and when there no longer are any errors, call the function
@@ -37,10 +37,10 @@ def submitted_input(hashtag_variable, number_variable):
         error = True
 
     if not error:
-        generate_output(hashtag, number)
+        generate_output(hashtag, number, window)
 
 
-def generate_output(hashtag, number):
+def generate_output(hashtag, number, window):
     """
     Function to search for the most recent number tweets with the
     hashtag given by the user and plot these tweets on a map
@@ -50,7 +50,7 @@ def generate_output(hashtag, number):
     :return: void
     """
     tweets, locations = st.generate_tweets_with_hashtag(hashtag, number)
-    pm.print_tweets(tweets, locations)
+    pm.print_tweets(tweets, locations, window)
 
     if len(locations) > 0:
         latitude, longitude = pm.generate_lat_long_locations(locations)
